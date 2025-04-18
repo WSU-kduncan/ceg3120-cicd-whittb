@@ -8,8 +8,7 @@ RUN npm install -g @angular/cli
 WORKDIR /app
 
 # Copy the contents of the "angular-site" folder from your repository into the container
-# Note: This assumes that "angular-site" is in the root of your Git repository.
-COPY angular-site/ .
+COPY Project4/angular-site/ .
 
 # Install the project dependencies declared in package.json
 RUN npm install
