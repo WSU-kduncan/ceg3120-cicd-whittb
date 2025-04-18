@@ -1,20 +1,20 @@
 # Use the official Node image as the base image
 FROM node:18-bullseye
 
-# Install Angular CLI globally so we can use the "ng" command
+# Install Angular CLI globally to enable the "ng" command
 RUN npm install -g @angular/cli
 
-# Set the working directory inside the container where our app will live
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the contents of the "angular-site" folder from your repository into the container
-COPY Project4/angular-site/ .
+# Copy the extracted Angular application from the repository into the container
+COPY Project4/angular-site/wsu-hw-ng-main/ .
 
-# Install the project dependencies declared in package.json
+# Install project dependencies as specified in package.json
 RUN npm install
 
-# Optionally, expose port 4200 (the default port for Angular)
+# Optionally expose port 4200 (Angular's default port)
 EXPOSE 4200
 
-# Run the Angular application. The "--host 0.0.0.0" option makes the app accessible externally.
+# Start the Angular application. The "--host 0.0.0.0" ensures it listens on all interfaces.
 CMD ["ng", "serve", "--host", "0.0.0.0"]
