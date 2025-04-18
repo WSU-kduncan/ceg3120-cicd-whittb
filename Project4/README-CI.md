@@ -1,37 +1,53 @@
-# Project Overview
+# Project Overview: 
 
-- what is the point of this project and what tools are used
-- Part 4 - Diagramming goes here
-  - Include a diagram (or diagrams) of your entire workflow. Meaning it should start with a project change / update, the steps that happen in between, and end with the updated version when the server is queried (web page is accessed)
+    - What is the goal of this project
+    - What tools are used in this project and what are their roles
+    - Diagram of project
 
-# Run Project Locally
+## Part 1:
 
-- how you installed docker + dependencies (WSL2, for example)
-- how to build the container
-- how to run the container
-- how to view the project running in the container (open a browser...go to ip and port...)
+1. Docker Setup
+    - How to install Docker for your OS
+    - Additional dependencies based on your OS
+      - Ex. Windows systems need WSL2
+    - How to confirm Docker is installed and your system can successfully run containers
+2. Manually Setting up a Container
+    - How to run a container to test the Angular application
+      - Include explanation of flags / arguments used
+    - Commands needed internal to the container to get additional dependencies
+    - Commands needed internal to the container to run the application
+    - How to verify that the container is successfully serving the Angular application
+      - validate from container side
+      - validate from host side
+3. `Dockerfile` & Building Images
+    - Summary / explanation of instructions written in the `Dockerfile`
+    - How to build an image from the repository `Dockerfile`
+    - How to run a container that will serve the Angular application from the image built by the `Dockerfile`
+    - How to verify that the container is successfully serving the Angular application
+      - validate from container side
+      - validate from host side
+5. Working with your DockerHub Repository
+    - How to create a public repo in DockerHub
+    - How to create a PAT for authentication (note recommended scope for this task)
+      - **DO NOT** add your DockerHub PAT to your documentation 
+    - How to authenticate with DockerHub via CLI using DockerHub credentials
+      - **DO NOT** add your DockerHub PAT to your documentation 
+    - How to push container image to your DockerHub repository
+    - **Link** to your DockerHub repository for this project
 
-# DockerHub
+## Part 2:
 
-- Process to create public repo in DockerHub
-- How to authenticate with DockerHub via CLI using Dockerhub credentials
-  - what credentials would you recommend providing?
-- How to push container to Dockerhub
-
-# GitHub Actions
-
-- Configuring GitHub Secrets
-  - What secrets were set based on what info
-- Behavior of GitHub workflow
-  - what does it do and when
-  - what variables in workflow are custom to your project
-
-# Deployment
-
-- Description of container restart script
-- Setting up a webhook on the server
-  - How you created you own listener
-  - How you installed the [webhook on GitHub](https://github.com/adnanh/webhook)
-  - How to keep the webhook running if the instance is on
-- Description of Webhook task definition file
-- Steps to set up a notifier in GitHub or DockerHub
+1. Configuring GitHub Repository Secrets:
+    - How to create a PAT for authentication (note recommended scope for this task)
+    - How to set repository Secrets for use by GitHub Actions
+    - Describe the Secrets set for this project
+2. CI with GitHub Actions
+    - Summary of what your workflow does and when it does it
+    - Explanation of workflow steps
+    - Explanation / highlight of values that need updated if used in a different repository
+      - changes in workflow
+      - changes in repository
+    - **Link** to workflow file in your GitHub repository
+3. Testing & Validating
+    - How to test that your workflow did its tasking
+    - How to verify that the image in DockerHub works when a container is run using the image
