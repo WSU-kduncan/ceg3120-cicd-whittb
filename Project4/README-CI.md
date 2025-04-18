@@ -33,7 +33,7 @@
     - How to authenticate with DockerHub via CLI using DockerHub credentials
       - **DO NOT** add your DockerHub PAT to your documentation 
     - How to push container image to your DockerHub repository
-    - [**Link** to your DockerHub repository for this project](https://hub.docker.com/r/bwhittaker34/whittaker-ceg3120)
+    - https://hub.docker.com/r/bwhittaker34/whittaker-ceg3120
 
 ## Part 2:
 
