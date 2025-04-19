@@ -1,8 +1,14 @@
 # Project Overview: 
 
 - What is the goal of this project
+    - The goal of this project is to automatically build and push a Docker container image of an Angular application to DockerHub whenever changes are pushed to the repository. This automated process ensures that the latest version of the application is always available as a Docker image for testing and deployment.
 - What tools are used in this project and what are their roles
+    - GitHub: Serves as the source code repository. All code changes (commits/pushes) are stored and versioned here.
+    - GitHub Actions: Manages the continuous integration (CI) workflow. On every push to the main branch, a workflow is triggered that checks out the repository, builds a Docker image using the Dockerfile, and pushes the image to DockerHub.
+    - Docker: Provides the platform to containerize the Angular application. The Dockerfile defines all steps to build the image (installing dependencies, setting the working directory, and running the application).
+    - DockerHub: Acts as the container registry. The built Docker image is pushed here and becomes available for deployment or further use.
 - Diagram of project
+
 
 ## Part 1:
 
@@ -90,7 +96,7 @@
             - Context/Paths: If your repository structure (or the location of the Dockerfile) changes, update the context parameter accordingly.
         - changes in repository
             - Secrets: Ensure the secrets (DOCKER_USERNAME and DOCKER_TOKEN) are set in the new repository’s settings.
-        - Workflow File Path: The workflow file is stored at ceg3120-cicd-whittb/.github/workflows/docker-image.yml
+        - Workflow File Path: The workflow file is stored at: `.github/workflows/docker-image.yml`
 3. Testing & Validating
     - How to test that your workflow did its tasking
         - GitHub Actions Tab: After pushing a commit to the main branch, navigate to the Actions tab in your repository. Find the workflow run and:
