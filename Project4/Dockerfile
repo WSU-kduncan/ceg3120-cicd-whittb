@@ -8,7 +8,7 @@ RUN npm install -g @angular/cli
 WORKDIR /app
 
 # Copy the extracted Angular application from the repository into the container
-COPY angular-site/angular-bird/ .
+COPY angular-site/angular-bird/wsu-hw-ng-main/ /app/
 
 # Install project dependencies as specified in package.json
 RUN npm install
