@@ -55,26 +55,53 @@
     - How to authenticate with DockerHub via CLI using DockerHub credentials
         - `docker -u login username`, then it will prompt for a password or PAT
     - How to push container image to your DockerHub repository
-        - Tag the Local Image: Assuming your local image is called my-angular-app, tag it with your Docker Hub repository name: `docker tag my-angular-app username/whittaker-ceg3120:latest`
-        - Push the Image: Then push the image with: `docker push username/whittaker-ceg3120:latest`
+        - Tag the Local Image: Assuming your local image is called my-angular-app, tag it with your Docker Hub repository name: `docker tag my-angular-app bwhittaker34/whittaker-ceg3120:latest`
+        - Push the Image: Then push the image with: `docker push bwhittaker34/whittaker-ceg3120:latest`
     - https://hub.docker.com/r/bwhittaker34/whittaker-ceg3120
 
 ## Part 2:
 
 1. Configuring GitHub Repository Secrets:
     - How to create a PAT for authentication (note recommended scope for this task)
+        - Process: Log in to your Docker Hub account and navigate to Account Settings → Security. Click the New Access Token button.
+        - Recommended Scope: Grant only the minimum necessary permissions—specifically, repository read and write access. This scope is sufficient for GitHub Actions to authenticate, push, and (if needed) pull images from your Docker Hub repository.
     - How to set repository Secrets for use by GitHub Actions
+        - Open your GitHub repository in a web browser, go to Settings → Secrets and variables → Actions, and click on New repository secret for each secret you need.
     - Describe the Secrets set for this project
+        - DOCKER_USERNAME: Contains your Docker Hub username
+        - DOCKER_TOKEN: Contains the PAT you just created on Docker Hub
 2. CI with GitHub Actions
     - Summary of what your workflow does and when it does it
+        - Trigger: The workflow is configured to trigger on every push to the main branch.
+        - Responsibilities: The workflow automatically:
+            - Checks out the repository.
+            - Sets up Docker Buildx to handle the build process.
+            - Logs in to Docker Hub using the repository secrets.
+            - Builds the Docker image from the repository (using your Dockerfile).
+            - Tags and pushes the image to your Docker Hub repository
     - Explanation of workflow steps
+        - Checkout Code: Uses actions/checkout@v3 to load the repository into the workflow environment.
+        - Set Up Docker Buildx: Uses docker/setup-buildx-action@v2 to initialize Docker Buildx, which supports advanced build options and multi-platform builds.
+        - Docker Hub Authentication: Uses docker/login-action@v2 to log in to Docker Hub. It uses the secrets DOCKER_USERNAME and DOCKER_TOKEN so no sensitive data is hard-coded.
+        - Build and Push the Image: Uses docker/build-push-action@v4 with the current repository as the context. This step builds your image and then pushes it to your Docker Hub repository. The image is tagged (e.g., bwhittaker34/whittaker-ceg3120:latest).
     - Explanation / highlight of values that need updated if used in a different repository
-      - changes in workflow
-      - changes in repository
-    - **Link** to workflow file in your GitHub repository
+        - changes in workflow
+            - Image Tag: If your Docker Hub repository name or tag changes, update the tags field in the build-push action.
+            - Context/Paths: If your repository structure (or the location of the Dockerfile) changes, update the context parameter accordingly.
+        - changes in repository
+            - Secrets: Ensure the secrets (DOCKER_USERNAME and DOCKER_TOKEN) are set in the new repository’s settings.
+        - Workflow File Path: The workflow file is stored at 
 3. Testing & Validating
     - How to test that your workflow did its tasking
+        - GitHub Actions Tab: After pushing a commit to the main branch, navigate to the Actions tab in your repository. Find the workflow run and:
+        - Verify that all steps (checkout, Buildx setup, Docker Hub login, build, and push) complete without errors.
+        - Look at the logs to ensure that the image was built correctly and that the push action succeeded.
+        - Notification & Logs: GitHub will show a status indicator for the workflow run. You may also consider adding notifications (e.g., via email) if you wish to track build status automatically.
     - How to verify that the image in DockerHub works when a container is run using the image
+        - Run the Image Locally: Pull and run the image from Docker Hub to test its functionality: `docker run -it --rm -p 4200:4200 bwhittaker34/whittaker-ceg3120:latest`
+        - Inside the Container: Check container logs using: `docker logs <container_id_or_name>`
+        - From the Host: Open a browser and go to http://localhost:4200. The application should load as expected.
+        - DockerHub Repository: You can also log in to Docker Hub and inspect your repository to ensure the image appears with the correct tag after the workflow completes.
 
 ## Resources:
 - [Lucid Charts](https://www.lucidchart.com/pages/)
