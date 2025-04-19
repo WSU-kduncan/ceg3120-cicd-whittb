@@ -24,10 +24,13 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_TOKEN }}
 
+    - name: Debug Files in GitHub Actions
+      run: ls -l Project4/angular-site/angular-bird/
+
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
-        context: Project4
+        context: .
         file: Project4/Dockerfile
         push: true
         tags: bwhittaker34/whittaker-ceg3120:latest
