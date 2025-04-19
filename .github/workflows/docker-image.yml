@@ -12,6 +12,8 @@ jobs:
     steps:
     - name: Check out Repository
       uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
@@ -25,7 +27,7 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
-        context: Project4
+        context: .
         file: Project4/Dockerfile
         push: true
         tags: bwhittaker34/whittaker-ceg3120:latest
