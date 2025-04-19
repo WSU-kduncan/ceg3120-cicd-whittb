@@ -90,7 +90,7 @@
             - Context/Paths: If your repository structure (or the location of the Dockerfile) changes, update the context parameter accordingly.
         - changes in repository
             - Secrets: Ensure the secrets (DOCKER_USERNAME and DOCKER_TOKEN) are set in the new repository’s settings.
-        - Workflow File Path: The workflow file is stored at [docker-image.yml](docker-image.yml.github/workflows/docker-image.yml)
+        - Workflow File Path: The workflow file is stored at [docker-image.yml](.github/workflows/docker-image.yml)
 3. Testing & Validating
     - How to test that your workflow did its tasking
         - GitHub Actions Tab: After pushing a commit to the main branch, navigate to the Actions tab in your repository. Find the workflow run and:
