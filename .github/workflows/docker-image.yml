@@ -27,7 +27,7 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
-        context: .
+        context: Project4
         file: Project4/Dockerfile
         push: true
         tags: bwhittaker34/whittaker-ceg3120:latest
