@@ -8,14 +8,24 @@
 
 1. Docker Setup
     - How to install Docker for your OS
+        - Download and install Docker Desktop for Windows by visiting the site `https://hub.docker.com/explore`
     - Additional dependencies based on your OS
-      - Ex. Windows systems need WSL2
+        - I'm on windows so needed WSL2 and that was all really.
     - How to confirm Docker is installed and your system can successfully run containers
+        - Open a terminal and run `docker --version`
 2. Manually Setting up a Container
     - How to run a container to test the Angular application
-      - Include explanation of flags / arguments used
+        - Run a command such as: `docker run -it --name angular-app -p 4200:4200 node:18-bullseye bash`
+        - Explanation of Flags/Arguments:
+            - -it: Runs the container in interactive mode with a terminal attached.
+            - --name angular-app: Names the container “angular-app” for easier management.
+            - -p 4200:4200: Maps port 4200 on your host to port 4200 in the container so the Angular app is accessible externally.
+            - node:18-bullseye: Uses the official Node image appropriate for running Angular.
+            - bash: Opens a bash shell in the container so you can run additional commands interactively.
     - Commands needed internal to the container to get additional dependencies
+        - `npm install -g @angular/cli` `cd wsu-hw-ng-main` `npm install`
     - Commands needed internal to the container to run the application
+        - 
     - How to verify that the container is successfully serving the Angular application
       - validate from container side
       - validate from host side
