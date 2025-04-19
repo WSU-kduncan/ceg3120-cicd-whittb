@@ -8,7 +8,7 @@
     - Docker: Provides the platform to containerize the Angular application. The Dockerfile defines all steps to build the image (installing dependencies, setting the working directory, and running the application).
     - DockerHub: Acts as the container registry. The built Docker image is pushed here and becomes available for deployment or further use.
 - Diagram of project
-![image](Project4/Screenshot(214).png)
+![image](Screenshot(214).png)
 
 ## Part 1:
 
