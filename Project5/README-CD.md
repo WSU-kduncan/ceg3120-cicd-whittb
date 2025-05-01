@@ -82,7 +82,7 @@
         - Run the script manually on the EC2 instance: `./deploy.sh`
         - Verify that the container is stopped (if previously running), refreshed with the new image, and running properly.
     - **LINK to bash script** in repository
-        - [deployment/deploy.sh](./deployment/deploy.sh)
+        - [deployment/deploy.sh](../deployment/deploy.sh)
 5. Configuring a `webhook` Listener on EC2 Instance
     - How to install [adnanh's `webhook`](https://github.com/adnanh/webhook) to the EC2 instance
         - Download the appropriate release binary for Linux from adnanh/webhook releases and extract it. For example:
