@@ -1,6 +1,3 @@
-- [README-CI](../Project4/READEME-CI.md)
-- [README-CD](../Project5/READEME-CD.md)
-
 # Project Overview
 This repository implements a modern continuous deployment pipeline for an Angular application. It is designed to automate the build, versioning, and deployment of containerized applications using GitHub Actions and DockerHub, with a final deployment to an EC2 instance.
 
@@ -28,7 +25,7 @@ GitHub Actions Workflow Files Found in the .github/workflows/ directory, these Y
 
 Documentation Files
 
-- 
+- README-CI.md: Contains detailed instructions for the continuous integration process, including how the GitHub Actions workflows build and push the Docker image.
 - README-CD.md: Contains detailed instructions on setting up continuous deployment, configuring the EC2 instance, Docker installation, webhook listener setup, and deployment testing.
 
 Links
