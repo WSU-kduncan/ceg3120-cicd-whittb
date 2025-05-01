@@ -1,0 +1,12 @@
+[Unit]
+Description=Webhook Listener Service for Continuous Deployment
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/webhook -hooks /home/ubuntu/deployment/hooks.json -verbose
+Restart=always
+User=ubuntu
+Environment=HOME=/home/ubuntu
+
+[Install]
+WantedBy=multi-user.target
