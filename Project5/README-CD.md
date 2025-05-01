@@ -1,6 +1,6 @@
 # Project Overview
 
-- Goal: Automatically deploy a new container image to a production server (an EC2 instance) whenever a developer makes code changes. When a new semantic version tag is pushed, the updated container image is built, pushed to DockerHub, and then automatically deployed—stopping the old container and launching a new one.
+- Goal: Automatically deploy a new container image to a production server (an EC2 instance) whenever a developer makes code changes. When a new semantic version tag is pushed, the updated container image is built, pushed to DockerHub, and then automatically deployed, stopping the old container and launching a new one.
 
 - Tools and Their Roles:
     - Git & GitHub Actions:
