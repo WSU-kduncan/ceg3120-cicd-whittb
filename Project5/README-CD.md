@@ -11,6 +11,9 @@
     - Adnanh's Webhook: Listens for webhook payloads from either GitHub or DockerHub that signal a new image is ready; triggers the deployment script on the EC2 instance.
     - Deployment Script (Bash): Stops and removes the currently running container, pulls the new image from DockerHub, and runs the updated container.
 
+- Diagram:
+[image](Screenshot(249).png)
+
 ## Some quick links
 
 - [README-CI](../Project4/READEME-CI.md)
