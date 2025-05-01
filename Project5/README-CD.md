@@ -16,11 +16,17 @@
             - Uses the docker/metadata-action to compute image tags (latest, major, and major.minor).
             - Builds the Docker image and pushes it to DockerHub with the generated tags.
     - Explanation of workflow steps
+        - Trigger: The workflow is exclusively triggered by new Git tags.
+        - Docker Metadata Generation: The docker/metadata-action derives the necessary tags based on the pushed tag.
+        - Push Process: The docker/build-push-action builds the image and pushes it to DockerHub.
     - Explanation / highlight of values that need updated if used in a different repository
-    - changes in workflow
-    - changes in repository
+        - changes in workflow/repository
+            - Any naming conventions of file pathing.
     - **Link** to workflow file in your GitHub repository
         - `.github/workflows/tag-build.yml`
 3. Testing & Validating
     - How to test that your workflow did its tasking
+        - After pushing a new tag, check your repository’s Actions tab to see the build workflow in progress.
+        - Validate that the logs indicate a successful login to DockerHub, metadata extraction, and image build.
     - How to verify that the image in DockerHub works when a container is run using the image
+        - Log in to your DockerHub repository. You should see the new image available under these three tags: latest, the major version, and the major.minor version.
