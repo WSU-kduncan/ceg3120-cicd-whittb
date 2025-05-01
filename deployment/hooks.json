@@ -1,0 +1,17 @@
+[
+  {
+    "id": "deploy",
+    "execute-command": "/home/ubuntu/deployment/deploy.sh",
+    "command-working-directory": "/home/ubuntu/deployment",
+    "trigger-rule": {
+      "match": {
+        "type": "value",
+        "value": "HonorBestPup",
+        "parameter": {
+          "source": "header",
+          "name": "X-Webhook-Secret"
+        }
+      }
+    }
+  }
+]
