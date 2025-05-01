@@ -1,14 +1,23 @@
 # Project Overview
 
+- Goal: Automatically deploy a new container image to a production server (an EC2 instance) whenever a developer makes code changes. When a new semantic version tag is pushed, the updated container image is built, pushed to DockerHub, and then automatically deployed—stopping the old container and launching a new one.
 
+- Tools and Their Roles:
+    - Git & GitHub Actions:
+        - Git: Used for version controlling the code along with semantic version tags.
+        - GitHub Actions: Builds the Docker image when a new tag is pushed, and then pushes the image to DockerHub.
+    - DockerHub: Hosts the built container images, making them available for deployment.
+    - EC2 Instance: The target server that runs the containerized application.
+    - Adnanh's Webhook: Listens for webhook payloads from either GitHub or DockerHub that signal a new image is ready; triggers the deployment script on the EC2 instance.
+    - Deployment Script (Bash): Stops and removes the currently running container, pulls the new image from DockerHub, and runs the updated container.
 
 ## Some quick links
 
-[README-CI](../Project4/READEME-CI.md)
-[angular-site](../Project4/angular-site)
-[Dockerfile](../Project4/Dockerfile)
-[workflows](../.github/workflows)
-[deployment](../deployment)
+- [README-CI](../Project4/READEME-CI.md)
+- [angular-site](../Project4/angular-site)
+- [Dockerfile](../Project4/Dockerfile)
+- [workflows](../.github/workflows)
+- [deployment](../deployment)
 
 ## Part 1
 
