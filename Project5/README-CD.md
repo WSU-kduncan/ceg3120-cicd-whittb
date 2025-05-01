@@ -1,4 +1,4 @@
-# Part 1
+## Part 1
 
 1. Generating `tag`s 
     - How to see tags in a `git` repository
@@ -21,7 +21,7 @@
         - Push Process: The docker/build-push-action builds the image and pushes it to DockerHub.
     - Explanation / highlight of values that need updated if used in a different repository
         - changes in workflow/repository
-            - Any naming conventions of file pathing.
+            - Any naming conventions or file pathing.
     - **Link** to workflow file in your GitHub repository
         - `.github/workflows/tag-build.yml`
 3. Testing & Validating
@@ -30,3 +30,6 @@
         - Validate that the logs indicate a successful login to DockerHub, metadata extraction, and image build.
     - How to verify that the image in DockerHub works when a container is run using the image
         - Log in to your DockerHub repository. You should see the new image available under these three tags: latest, the major version, and the major.minor version.
+
+## Part 2
+
