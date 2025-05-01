@@ -147,3 +147,6 @@
         - Once the service is running, monitor the logs (ex: using journalctl or checking Docker container status) to ensure that incoming payloads trigger the deployment script.
     - **LINK to service file** in repository
         - [deployment/webhook.service](../deployment/webhook.service)
+
+## Resources:
+- [Lucid Charts](https://www.lucidchart.com/pages/)
