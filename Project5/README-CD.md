@@ -23,7 +23,7 @@
         - changes in workflow/repository
             - Any naming conventions or file pathing.
     - **Link** to workflow file in your GitHub repository
-        - `.github/workflows/tag-build.yml`
+        - [tag-build](../.github/workflows/tag-build.yml)
 3. Testing & Validating
     - How to test that your workflow did its tasking
         - After pushing a new tag, check your repository’s Actions tab to see the build workflow in progress.
@@ -101,6 +101,7 @@
         - what to look for in `docker` process views
             - Verify that containers are being stopped/removed/created as expected.
     - **LINK to definition file** in repository
+        - [deployment/hooks.json](../deployment/hooks.json)
 6. Configuring a Payload Sender
     - Justification for selecting GitHub or DockerHub as the payload sender
         - GitHub: Sends a payload when a GitHub Action completes (ensuring your build is successful) and may offer more detailed trigger events.
@@ -124,3 +125,4 @@
     - How to verify `webhook` service is capturing payloads and triggering bash script
         - Once the service is running, monitor the logs (ex: using journalctl or checking Docker container status) to ensure that incoming payloads trigger the deployment script.
     - **LINK to service file** in repository
+        - [deployment/webhook.service](../deployment/webhook.service)
