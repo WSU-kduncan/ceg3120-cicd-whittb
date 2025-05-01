@@ -12,7 +12,7 @@
     - Deployment Script (Bash): Stops and removes the currently running container, pulls the new image from DockerHub, and runs the updated container.
 
 - Diagram:
-[image](Screenshot(249).png)
+![image](Screenshot(249).png)
 
 ## Some quick links
 
